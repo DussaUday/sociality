@@ -2,21 +2,16 @@ import { Server } from "socket.io";
 import http from "http";
 import express from "express";
 import Message from "../models/message.model.js";
-import cors from "cors";
+
 import User from "../models/user.model.js";
 
 const app = express();
 const server = http.createServer(app);
 const io = new Server(server, {
-    cors: {
-        origin: [
-            "http://localhost:3000",                  // Local development
-            "https://socialty.vercel.app",            // Vercel frontend
-            "https://sociality-1.onrender.com"        // Render backend
-        ],
-        methods: ["GET", "POST"],
-        credentials: true,
-    },
+	cors: {
+		origin: ["http://localhost:3000"],
+		methods: ["GET", "POST"],
+	},
 });
 
 export const getReceiverSocketId = (receiverId) => {
