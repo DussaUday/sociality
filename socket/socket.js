@@ -2,7 +2,7 @@ import { Server } from "socket.io";
 import http from "http";
 import express from "express";
 import Message from "../models/message.model.js";
-
+import cors from "cors";
 import User from "../models/user.model.js";
 
 const app = express();
