@@ -26,7 +26,7 @@ export const SocketContextProvider = ({ children }) => {
 	const {setFollowersDetails}=useState([]);
 	useEffect(() => {
 		if (authUser) {
-			const socket = io("https://socialty.vercel.app", {
+			const socket = io("http://localhost:5000", {
 				query: {
 					userId: authUser._id,
 				},
