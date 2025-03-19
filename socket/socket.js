@@ -7,7 +7,12 @@ import User from "../models/user.model.js";
 
 const app = express();
 const server = http.createServer(app);
-
+const io = new Server(server, {
+	cors: {
+		origin: ["http://localhost:3000"],
+		methods: ["GET", "POST"],
+	},
+});
 
 export const getReceiverSocketId = (receiverId) => {
 	return userSocketMap[receiverId];
@@ -228,4 +233,3 @@ io.on("connection", (socket) => {
 });
 
 export { app, io, server, userSocketMap, };
- 
